@@ -1,0 +1,152 @@
+// colors
+$bg-color: #574584;
+$triangle-top-color: #e74131;
+$triangle-left-color: #ffa242;
+$triangle-right-color: #ffa242;
+$triangle-center-color: #ff6b37;
+$triangle-center-front-color: #e74131;
+$title-color: #fff;
+
+// mixins
+@mixin center {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+@mixin pseudo($position: absolute, $content: "") {
+    content: $content;
+    position: $position;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background: $bg-color;
+  overflow: hidden;
+}
+
+.logo{
+  @include center;
+  top: 8vmin;
+  left: -12vmin;
+
+  .triangle-top-left{
+    @include center;
+    left: -45vmin;
+    top: -33vmin;
+    width: 25vmin;
+    height: 30vmin;
+    background: $triangle-top-color;
+    border-top-left-radius: 1.3vmin;
+    border-bottom-right-radius: 50%;
+    transform: rotate(72deg);
+
+    &:after{
+      @include pseudo;
+      left: -12vmin;
+      top: 8.7vmin;
+      width: 35vmin;
+      height: 25vmin;
+      background: $bg-color;
+      transform: rotate(36deg);
+    }
+  }
+
+  .triangle-top-right{
+    @include center;
+    left: 30.7vmin;
+    top: -33vmin;
+    width: 25vmin;
+    height: 30vmin;
+    background: $triangle-top-color;
+    border-top-left-radius: 1.3vmin;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    transform: rotate(72deg);
+
+    &:after{
+      @include pseudo;
+      left: -12vmin;
+      top: 8.1vmin;
+      width: 35vmin;
+      height: 20vmin;
+      background: $bg-color;
+      transform: rotate(36deg);
+    }
+  }
+
+  .triangle-left{
+    @include center;
+    top: 2.3vmin;
+    left: -7.2vmin;
+    width: 40vmin;
+    height: 13.2vmin;
+    background: $triangle-left-color;
+    border-bottom-left-radius: 2vmin;
+    transform: rotate(18deg);
+
+    &:after{
+      @include pseudo;
+      top: 4vmin;
+      left: 2vmin;
+      width: 37vmin;
+      height: 15vmin;
+      background: $triangle-left-color;
+      transform: rotate(18deg);
+      border-bottom-left-radius: 1vmin;
+    }
+  }
+
+  .triangle-center{
+    @include center;
+    z-index: 2;
+    top: 11.6vmin;
+    left: 12vmin;
+    width: 0;
+  	height: 0;
+  	border-left: 26.7vmin solid transparent;
+  	border-right: 26.7vmin solid transparent;
+  	border-top: 34.4vmin solid $triangle-center-color;
+  }
+
+  .triangle-center-front{
+    @include center;
+    z-index: 3;
+    top: 11.6vmin;
+    left: 12vmin;
+    width: 0;
+    height: 0;
+    border-left: 11.3vmin solid transparent;
+    border-right: 11.3vmin solid transparent;
+    border-top: 34.4vmin solid $triangle-center-front-color;
+  }
+
+  .triangle-right{
+    @include center;
+    top: 2.3vmin;
+    left: 31.8vmin;
+    width: 40vmin;
+    height: 13.2vmin;
+    background: $triangle-right-color;
+    border-bottom-right-radius: 2vmin;
+    transform: rotate(-18deg);
+
+    &:after{
+      @include pseudo;
+      top: 4vmin;
+      left: 0.7vmin;
+      width: 37vmin;
+      height: 15vmin;
+      background: $triangle-right-color;
+      transform: rotate(-18deg);
+      border-bottom-right-radius: 1vmin;
+    }
+  }
+}
